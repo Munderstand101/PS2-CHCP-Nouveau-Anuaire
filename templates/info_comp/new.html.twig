@@ -1,0 +1,12 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}New InfoComp{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <h1>Create new InfoComp</h1>
+
+    {{ include('info_comp/_form.html.twig') }}
+
+    <a href="{{ path('info_comp_index') }}">back to list</a>
+{% endblock %}

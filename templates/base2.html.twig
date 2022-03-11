@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Docs{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        {% block row %}
+        {% endblock %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card p-3 py-4">
+                    <div class="card-body">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

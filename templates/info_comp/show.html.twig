@@ -1,0 +1,31 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}InfoComp{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <h1>InfoComp</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ info_comp.id }}</td>
+            </tr>
+            <tr>
+                <th>MainLineNumber</th>
+                <td>{{ info_comp.mainLineNumber }}</td>
+            </tr>
+            <tr>
+                <th>ChampComp</th>
+                <td>{{ info_comp.champComp }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('info_comp_index') }}">back to list</a>
+
+    <a href="{{ path('info_comp_edit', {'id': info_comp.id}) }}">edit</a>
+
+    {{ include('info_comp/_delete_form.html.twig') }}
+{% endblock %}

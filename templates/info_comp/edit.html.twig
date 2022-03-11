@@ -1,0 +1,14 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Edit InfoComp{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <h1>Edit InfoComp</h1>
+
+    {{ include('info_comp/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('info_comp_index') }}">back to list</a>
+
+    {{ include('info_comp/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,209 @@
+{% extends 'base2.html.twig' %}
+
+{% block row %}
+    {{ parent() }}
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10">
+            <div class="card p-3 py-4">
+                {# <h5>An Easier way to find your Housing</h5> #}
+
+                <form action="/" method="get" class="row">
+                    <div class="col-md-3">
+                        {# <label for="nom">nom</label> #}
+                        <input type="text" name="nom" id="nom" value="{{ app.request.query.get('nom') }}"
+                               class="form-control" placeholder="Enter un nom">
+                    </div>
+
+                    <div class="col-md-3">
+                        {# <label for="prenom">prenom</label> #}
+                        <input type="text" name="prenom" id="prenom" value="{{ app.request.query.get('prenom') }}"
+                               class="form-control" placeholder="Enter un prenom">
+                    </div>
+                    <div class="col-md-3">
+                        {# <label for="numero">numero</label> #}
+                        <input type="text" name="numero" id="numero" value="{{ app.request.query.get('numero') }}"
+                               class="form-control" placeholder="Enter un numero">
+                    </div>
+                    <div class="col-md-3">
+
+                        <button type="submit" class="btn btn-secondary btn-block">Rechercher</button>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <a data-toggle="collapse" href="#collapseExample" role="button"
+                           aria-expanded="false" aria-controls="collapseExample"
+                           class="advanced">Recherche avancée (Poles, UF et autre filtres)
+                            <i class="fa fa-angle-down"></i> </a>
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                                <div class="row">
+                                    {# <div class="dropdown">
+                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                     data-toggle="dropdown" aria-expanded="false">Statut
+                                     </button>
+
+                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                         <li><a class="dropdown-item" href="/">Personnes</a></li>
+                                         <li><a class="dropdown-item" href="?type=autre">Autre</a></li>
+                                     </ul>
+                                 </div> #}
+                                    <div class="col-md-3">
+                                        <label for="typeSelect">Type</label>
+                                        <select name="type" class="form-control" id="typeSelect">
+                                            <option {% if app.request.query.get('type')|lower == '' %}selected{% endif %}
+                                                    value="">Personnes
+                                            </option>
+                                            <option {% if app.request.query.get('type')|lower == 'autre' %}selected{% endif %}
+                                                    value="autre">Autre
+                                            </option>
+                                        </select>
+
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label for="pole">pole</label>
+                                        <input type="text" name="pole" id="pole"
+                                               value="{{ app.request.query.get('pole') }}" class="form-control"
+                                               placeholder="Enter un pole">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="uf">uf</label>
+                                        <input type="text" name="uf" id="uf" value="{{ app.request.query.get('uf') }}"
+                                               class="form-control" placeholder="Enter une uf">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="infocomp">infocomp</label>
+                                        <input type="text" name="infocomp" id="infocomp"
+                                               value="{{ app.request.query.get('infocomp') }}" class="form-control"
+                                               placeholder="Enter une infocomp">
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# <div class="form-group col-md-3"> #}
+                    {# <label for="nom">Nom:</label> #}
+                    {# <input type="text" name="nom" id="nom" value="{{ app.request.query.get('nom') }}" #}
+                    {# class="form-control" placeholder="Enter un nom"> #}
+                    {# </div> #}
+
+                    {# <div class="form-group col-md-3"> #}
+                    {# <label for="prenom">Prenom:</label> #}
+                    {# <input type="text" name="prenom" id="prenom" #}
+                    {# class="form-control" value="{{ app.request.query.get('prenom') }}" #}
+                    {# placeholder="Enter un prenom"> #}
+                    {# </div> #}
+                    {# <div class="form-group col-md-3"> #}
+                    {# <label for="numero">Numero:</label> #}
+                    {# <input type="text" name="numero" id="numero" value="{{ app.request.query.get('numero') }}" #}
+                    {# class="form-control"> #}
+                    {# </div> #}
+
+                    {# <button type="submit" class="btn btn-primary">Submit</button> #}
+
+
+                </form>
+
+                {# <div class="row g-3 mt-2"> #}
+
+                {# </div> #}
+
+                {# <div class="mt-3"><a data-toggle="collapse" href="#collapseExample" role="button" #}
+                {# aria-expanded="false" aria-controls="collapseExample" #}
+                {# class="advanced">Recherche avancée (Poles, UF et autre filtres) #}
+                {# <i class="fa fa-angle-down"></i> </a> #}
+                {# <div class="collapse" id="collapseExample"> #}
+                {# <div class="card card-body"> #}
+                {# <div class="row"> #}
+
+                {# <form action="/" method="get" class="row"> #}
+                {# <div class="col-md-3"> #}
+                {# <input type="text" name="pole" id="pole" value="{{ app.request.query.get('pole') }}" class="form-control" placeholder="Enter un pole"> #}
+                {# </div> #}
+
+                {# <div class="col-md-3"> #}
+                {# <input type="text" name="uf" id="uf" value="{{ app.request.query.get('uf') }}" class="form-control" placeholder="Enter une uf"> #}
+                {# </div> #}
+
+                {# <div class="col-md-3"> #}
+                {# <button type="submit"  class="btn btn-secondary btn-block">Rechercher</button> #}
+                {# </div> #}
+                {# </form> #}
+
+                {# #}{# <div class="col-md-4"> #}
+                {# #}{# <input type="text" placeholder="Property ID" #}
+                {# #}{# class="form-control"> #}
+                {# #}{# </div> #}
+                {# #}{# <div class="col-md-4"> #}
+                {# #}{# <input type="text" class="form-control" #}
+                {# #}{# placeholder="Search by MAP"> #}
+                {# #}{# </div> #}
+                {# #}{# <div class="col-md-4"> #}
+                {# #}{# <input type="text" class="form-control" #}
+                {# #}{# placeholder="Search by Country"> #}
+                {# #}{# </div> #}
+                {# </div> #}
+                {# </div> #}
+                {# </div> #}
+                {# </div> #}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+
+    <table id="table"
+           data-height="590"
+           data-sort-name="displayName"
+           data-sort-order="asc">
+        <thead>
+        <tr>
+
+            <th style="" data-field="displayName" data-filter-control="input" data-sortable="true">
+                <div class="th-inner ">Nom</div>
+                <div class="fht-cell"></div>
+            </th>
+            <th style="" data-field="displayGn" data-sortable="true">
+                <div class="th-inner ">Prenom</div>
+                <div class="fht-cell"></div>
+            </th>
+            {# <th style="" data-field="sn" data-sortable="true"> #}
+            {# <div class="th-inner ">sn</div> #}
+            {# <div class="fht-cell"></div> #}
+            {# </th> #}
+            <th style="" data-field="hierarchySV" data-sortable="true" data-filter-control="select">
+                <div class="th-inner ">hierarchySV</div>
+                <div class="fht-cell"></div>
+            </th>
+            {# <th style="" data-field="givenName" data-sortable="true"> #}
+            {# <div class="th-inner ">givenName</div> #}
+            {# <div class="fht-cell"></div> #}
+            {# </th> #}
+            {# <th style="" data-field="telephoneNumber" data-sortable="true"> #}
+            {# <div class="th-inner ">telephoneNumber</div> #}
+            {# <div class="fht-cell"></div> #}
+            {# </th> #}
+            <th style="" data-field="mainLineNumber" data-sortable="true">
+                <div class="th-inner ">mainLineNumber</div>
+                <div class="fht-cell"></div>
+            </th>
+        </tr>
+        </thead>
+
+    </table>
+    <script>
+        var $table = $('#table')
+        $(function () {
+            var data = [{{ data|raw }}]
+            $table.bootstrapTable({data: data})
+        })
+    </script>
+
+{% endblock %}
+

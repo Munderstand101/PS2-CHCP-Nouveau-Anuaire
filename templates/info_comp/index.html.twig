@@ -1,0 +1,38 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}InfoComp index{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <h1>InfoComp index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>MainLineNumber</th>
+                <th>ChampComp</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for info_comp in info_comps %}
+            <tr>
+                <td>{{ info_comp.id }}</td>
+                <td>{{ info_comp.mainLineNumber }}</td>
+                <td>{{ info_comp.champComp }}</td>
+                <td>
+                    <a href="{{ path('info_comp_show', {'id': info_comp.id}) }}">show</a>
+                    <a href="{{ path('info_comp_edit', {'id': info_comp.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('info_comp_new') }}">Create new</a>
+{% endblock %}

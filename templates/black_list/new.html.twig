@@ -1,0 +1,12 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}New BlackList{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <h1>Create new BlackList</h1>
+
+    {{ include('black_list/_form.html.twig') }}
+
+    <a href="{{ path('black_list_index') }}">back to list</a>
+{% endblock %}

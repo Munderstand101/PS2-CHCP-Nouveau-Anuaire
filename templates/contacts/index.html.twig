@@ -1,0 +1,63 @@
+
+{% extends 'base2.html.twig' %}
+
+
+{% block content %}
+    {{ parent() }}
+
+    {{ dump(data) }}
+
+    <table id="table"
+           data-height="590"
+           data-sort-name="displayName"
+           data-sort-order="asc">
+        <thead>
+        <tr>
+
+            <th style="" data-field="displayName" data-filter-control="input" data-sortable="true">
+                <div class="th-inner ">Nom</div>
+                <div class="fht-cell"></div>
+            </th>
+            <th style="" data-field="displayGn" data-sortable="true">
+                <div class="th-inner ">Prenom</div>
+                <div class="fht-cell"></div>
+            </th>
+            <th style="" data-field="givenName" data-sortable="true">
+                <div class="th-inner ">Prenom</div>
+                <div class="fht-cell"></div>
+            </th>
+             <th style="" data-field="sn" data-sortable="true">
+             <div class="th-inner ">sn</div>
+             <div class="fht-cell"></div>
+             </th>
+            <th style="" data-field="phoneNumber" data-sortable="true" data-filter-control="select">
+                <div class="th-inner ">phoneNumber</div>
+                <div class="fht-cell"></div>
+            </th>
+            <th style="" data-field="private" data-sortable="true">
+                <div class="th-inner ">private</div>
+                <div class="fht-cell"></div>
+            </th>
+        </tr>
+        </thead>
+
+    </table>
+    <script>
+        var $table = $('#table')
+
+        $(function () {
+
+
+            var data = [
+                {{ data|raw }}
+
+            ]
+            $table.bootstrapTable({data: data})
+
+
+        })
+    </script>
+
+{% endblock %}
+
+

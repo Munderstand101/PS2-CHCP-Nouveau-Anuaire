@@ -1,0 +1,31 @@
+.colored-label{
+    color: red;
+    font-style: oblique;
+}
+
+.alert{
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+.alert-error{
+    background-color:red;
+}
+.alert-success{
+    background-color:green;
+}
+.alert-warning{
+    background-color:orange;
+}
+
+/* image extension */
+img.ext {
+    width: 35px;
+    height: 35px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section #foo {
+    min-height: 100vh; /* minus the height of the footer */
+}

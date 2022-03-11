@@ -1,0 +1,14 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Edit BlackList{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <h1>Edit BlackList</h1>
+
+    {{ include('black_list/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('black_list_index') }}">back to list</a>
+
+    {{ include('black_list/_delete_form.html.twig') }}
+{% endblock %}

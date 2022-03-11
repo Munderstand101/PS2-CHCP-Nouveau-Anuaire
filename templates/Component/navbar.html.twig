@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 70px;">
+
+    {# Logo #}
+    <a class="navbar-brand"><span class="flaticon-pizza-1 mr-1"></span>ANNUAIRE<br><small>CH-PERRENS</small></a>
+    {# Left #}
+
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            {# https://dthlabs.com/set-a-bootstrap-menu-item-as-active-in-symfony-5/ #}
+            {% set route_name = app.request.attributes.get('_route') %}
+
+            <li {% if route_name == "index" %} class="nav-item active" {% else %} class="nav-item" {% endif %} >
+                <a class="nav-link" href="{{ path('index') }}">Agents</a>
+            </li>
+            <li {% if route_name == "contacts" %} class="nav-item active" {% else %} class="nav-item" {% endif %} >
+                <a class="nav-link" href="{{ path('contacts') }}">Contacts</a>
+            </li>
+
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item {{ app.request.get('_route') == 'black_list_index' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ path('black_list_index') }}">Black list</a>
+                </li>
+                <li class="nav-item {{ app.request.get('_route') == 'info_comp_index' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ path('info_comp_index') }}">Info comp</a>
+                </li>
+
+            {% endif %}
+
+        </ul>
+        <ul class="navbar-nav  pull-right">
+            {% if app.user %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        {{ app.user.username }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ path('app_logout') }}">
+                            Logout
+                        </a>
+                    </div>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
