@@ -12,9 +12,9 @@
             <li {% if route_name == "index" %} class="nav-item active" {% else %} class="nav-item" {% endif %} >
                 <a class="nav-link" href="{{ path('index') }}">Agents</a>
             </li>
-            <li {% if route_name == "contacts" %} class="nav-item active" {% else %} class="nav-item" {% endif %} >
-                <a class="nav-link" href="{{ path('contacts') }}">Contacts</a>
-            </li>
+{#            <li {% if route_name == "contacts" %} class="nav-item active" {% else %} class="nav-item" {% endif %} >#}
+{#                <a class="nav-link" href="{{ path('contacts') }}">Contacts</a>#}
+{#            </li>#}
 
 
             {% if is_granted('ROLE_ADMIN') %}
